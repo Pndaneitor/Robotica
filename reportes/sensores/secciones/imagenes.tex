@@ -1,294 +1,610 @@
 \section{Tipos de sensores}
+\vspace{10mm}
 \textbf{Por posición:}
+\vspace{5mm}
 
-\textbf{Encoder Incremental:} Este tipo de sensor óptico digital convierte el movimiento en una secuencia de pulsos digitales. Tiene una escala transparente con una retícula opaca; de un lado, tiene una escala equipada con una fuente de luz y un lente condensador. Del otro lado, hay celdas sensibles a la luz. La manera en la que funciona es que la resistencia de las celdas disminuye cada vez que reciben un rayo de luz, de este modo se genera un pulso cada vez que un rayo de luz es atravesado.\autoref{fig:20150317193931229}
+\textbf{Encoder Incremental :} 
 
-considerable.\autoref{fig:lvdt} \\
+Este tipo de sensor óptico digital convierte el movimiento en una secuencia de pulsos digitales. Tiene una escala transparente con una retícula opaca; de un lado, tiene una escala equipada con una fuente de luz y un lente condensador. Del otro lado, hay celdas sensibles a la luz. La manera en la que funciona es que la resistencia de las celdas disminuye cada vez que reciben un rayo de luz, de este modo se genera un pulso cada vez que un rayo de luz es atravesado.
+
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{portada/20150317193931229}
-	\caption{}
+	\caption{Encoder incremental}
 	\label{fig:20150317193931229}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{img/Sencoderincremental}
-	\caption{}
+	\caption{Codificador rotatorio incremental - OMCH}
 	\label{fig:Sencoderincremental}
 \end{figure}
+\vspace{10mm}
+\textbf{Encoder Absoluto :} 
 
-\textbf{Encoder Absoluto:} Un encoder absoluto proporciona un valor único de posición en cualquier momento y permite que el sistema recuerde su ubicación incluso después de apagarse y encenderse nuevamente. Genera mensajes digitales que representan la posición actual del encoder, así como su velocidad y dirección de movimiento. En caso de pérdida de energía, su salida se corrige automáticamente al restablecer la alimentación, sin necesidad de regresar a una posición de referencia, como ocurre con los encoders incrementales.\\\\\\\\\\\\
+Un encoder absoluto proporciona un valor único de posición en cualquier momento y permite que el sistema recuerde su ubicación incluso después de apagarse y encenderse nuevamente. Genera mensajes digitales que representan la posición actual del encoder, así como su velocidad y dirección de movimiento. En caso de pérdida de energía, su salida se corrige automáticamente al restablecer la alimentación, sin necesidad de regresar a una posición de referencia, como ocurre con los encoders incrementales.\\\\\\\\\\\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/encoder}
-	\caption{}
+	\caption{Encoder absoluto}
 	\label{fig:encoder}
 \end{figure} 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{img/Sencoderabsoluto}
-	\caption{}
+	\caption{Funcionamiento de un encoder absoluto}
 	\label{fig:Sencoderabsoluto}
 \end{figure}
 
+\vspace{10mm} 
+% Párrafo de Potenciómetro
+\textbf{Potenciómetro :} 
 
-\textbf{Potenciómetro:} Es un dispositivo de resistencia variable que expresa desplazamientos lineales o angulares en términos de voltaje. Consiste en una clavija deslizante que hace contacto con un elemento resistivo, conforme se mueve este punto de contacto la resistencia entre el contacto deslizante y las conexiones de los extremos del dispositivos cambia en proporción al desplazamiento. \autoref{fig:potenciometro}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Es un dispositivo de resistencia variable que expresa desplazamientos lineales o angulares en términos de voltaje. Consiste en una clavija deslizante que hace contacto con un elemento resistivo, conforme se mueve este punto de contacto la resistencia entre el contacto deslizante y las conexiones de los extremos del dispositivo cambia en proporción al desplazamiento.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.2\linewidth, height=0.2\textheight]{img/potenciometro}
-	\caption[Potenciómetro]{}
-	\label{fig:potenciometro}
-\end{figure}
 
-\begin{figure}[h]
-	\centering
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/potenciometro}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 5:} Potenciómetro
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.4\linewidth]{img/Spotenciometro}
-	\caption{}
-	\label{fig:Spotenciometro}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 6:} Diagrama de un potenciómetro.
+\end{center}
+
+\vspace{10mm}
+\textbf{LVDT :} 
+
+Es uno de los transductores de desplazamiento más populares ya que genera una señal de CA cuya magnitud se relaciona con el desplazamiento de un núcleo móvil. Tiene como concepto básico de un núcleo móvil rodeado por dos bobinas secundarias y una bobina principal y conforme el núcleo cambia su posición con respecto a las bobinas cambia también el campo magnético y por tanto se modifica la amplitud de voltaje en la bobina secundaria como una función del desplazamiento del núcleo a través de un segmento.
+
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/LVDT}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 7:} LVDT
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/Slvdt}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 8:} Funcionamiento de un LVDT.
+\end{center}
 
 
-\textbf{LVDT:} Es uno de los transductores de desplazamiento más populares ya que genera una señal de CA cuya magnitud se relaciona con el desplazamiento de un núcleo móvil. Tiene como concepto básico de un núcleo móvil rodeado por dos bobinas secundarias y una bobina principal y conforme el núcleo cambia su posición con respecto a las bobinas cambia también el campo magnético y por tanto se modifica la amplitud de voltaje en la bobina secundaria como una función del desplazamiento del núcleo a través de un segmento.\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+\vspace{10mm}
 
+% Párrafo de Resolver
+\textbf{Resolver :} 
 
+Son sensores que proporcionan señales análogas y consisten en un eje (flecha) solidario con una carcasa estacionaria. Sus señales deben ser convertidas en la forma digital por medio de un convertidor analógico a digital. Los resolvers tienen dos devanados orientados a 90°.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.2\linewidth, height=0.2\textheight]{img/LVDT}
-	\caption{}
-	\label{fig:lvdt}
-\end{figure}
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\linewidth]{img/Slvdt}
-	\caption{}
-	\label{fig:Slvdt}
-\end{figure}
-
-
-\textbf{Resolver:} Son sensores que proporcionan señales análogas como salidas y consisten en un eje (flecha) giratoria (rotor) y una carcasa estacionaria. Sus señales tienen que convertirse a la forma digital por medio de un convertidor analógico a digital. Los resólvers tienen dos devanados orientados a 90°. \autoref{fig:resolver}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-\begin{figure}[!]
-	\centering
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.2\linewidth, height=0.15\textheight]{img/resolver}
-	\caption[Resolver]{}
-	\label{fig:resolver}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 9:} Resolver.
+\end{center}
 
-\begin{figure}[h]
-	\centering
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.4\linewidth]{img/Srevolver}
-	\caption{}
-	\label{fig:Srevolver}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 10:} Funcionamiento de un resolver.
+\end{center}
+
+% Asegura que el siguiente párrafo no se junte con las imágenes
+\vspace{10mm}
+
 
 
 \textbf{Velocidad-tacogeneratriz :}
 
-La captación de la velocidad se hace necesaria para mejorar el comportamiento dinámico de los actuadores del robot. La velocidad de movimiento de cada actuador (que tras el reductor es la velocidad de la articulación) se realimenta normalmente a un bucle de control analógico implementado en el propio accionador del elemento motor. No obstante, en ocasiones en las que el sistema de control del robot lo exija, la velocidad de giro de cada actuador es llevada hasta la unidad de control del robot. Normalmente, y puesto que el bucle de control de velocidad es analógico, el captador usado es una tacogeneratriz que proporciona una tensión proporcional a la velocidad de giro de su eje (valores típicos pueden ser 10 milivoltios por rpm). Otra posibilidad, usada para el caso de que la unidad de control del robot precise valorar la velocidad de giro de las articulaciones, consiste en derivar la información de posición que ésta posee.\autoref{fig:oip}
+La captación de la velocidad se hace necesaria para mejorar el comportamiento dinámico de los actuadores del robot. La velocidad de movimiento de cada actuador (que tras el reductor es la velocidad de la articulación) se realimenta normalmente a un bucle de control analógico implementado en el propio accionador del elemento motor. No obstante, en ocasiones en las que el sistema de control del robot lo exija, la velocidad de giro de cada actuador es llevada hasta la unidad de control del robot. Normalmente, y puesto que el bucle de control de velocidad es analógico, el captador usado es una tacogeneratriz que proporciona una tensión proporcional a la velocidad de giro de su eje (valores típicos pueden ser 10 milivoltios por rpm). Otra posibilidad, usada para el caso de que la unidad de control del robot precise valorar la velocidad de giro de las articulaciones, consiste en derivar la información de posición que ésta posee.
 
 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.2\linewidth, height=0.2\textheight]{img/OIP}
-	\caption{}
-	\label{fig:oip}
-\end{figure}
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\linewidth]{img/Sencoderincremental}
-	\caption{}
-	\label{fig:Sencoderincremental}
-\end{figure}
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/OIP}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 11:} OIP
+\end{center}
 
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/Sencoderincremental}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 12:} Funcionamiento de un encoder incremental.
+\end{center}
+
+\vspace{10mm}
 \textbf{Tacometro:}
 
-Estos sensores pueden encontrar directamente la velocidad en cualquier momento ya que estos miden la velocidad de rotación de un elemento. Su diseño se basa en la regla de Fleming que declara que “el voltaje producido es proporcional al índice del acoplamiento inductivo”. Aquí un conductor (básicamente una bobina) se sujeta al elemento rotativo que gira en un campo magnético (estator). Conforme incrementa la velocidad del eje, el voltaje producido en las terminales de las bobinas también aumenta.\autoref{fig:tacometro}
+Estos sensores pueden encontrar directamente la velocidad en cualquier momento ya que estos miden la velocidad de rotación de un elemento. Su diseño se basa en la regla de Fleming que declara que “el voltaje producido es proporcional al índice del acoplamiento inductivo”. Aquí un conductor (básicamente una bobina) se sujeta al elemento rotativo que gira en un campo magnético (estator). Conforme incrementa la velocidad del eje, el voltaje producido en las terminales de las bobinas también aumenta.
 
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\linewidth, height=0.3\textheight]{img/tacometro}
-	\caption[Tacometro]{}
-	\label{fig:tacometro}
-\end{figure}
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth, height=0.2\textheight]{img/tacometro}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 13:} Tacómetro.
+\end{center}
 
-\textbf{}\\\\
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.7\linewidth]{img/Sveltaco}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 14:} Funcionamiento de un tacómetro.
+\end{center}
+\vspace{10mm}
 \textbf{Sensor de Efecto Hall:}
 
-Es un sensor de medición de velocidad el cual tiene el principio de “Si una pieza plana de material conductivo llamada chip Hall se sujeta a una diferencia de potencial en sus dos lados opuestos entonces el voltaje que se genera a través de las caras perpendiculares es cero”.\autoref{fig:hall}\\\\\\\\\\
+Es un sensor de medición de velocidad el cual tiene el principio de “Si una pieza plana de material conductivo llamada chip Hall se sujeta a una diferencia de potencial en sus dos lados opuestos entonces el voltaje que se genera a través de las caras perpendiculares es cero”.
+
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.1\linewidth, height=0.1\textheight]{img/HALL}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 15:} Sensor de efecto Hall.
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/Shall}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 16:} Funcionamiento de un sensor de efecto Hall.
+\end{center}
 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.2\linewidth, height=0.2\textheight]{img/HALL}
-	\caption{}
-	\label{fig:hall}
-\end{figure}
-
-
-
-
+\vspace{10mm}
 \textbf{Galgas extensométricas:}
 
-El principio de este sensor es que el alargamiento de un conductor aumenta su resistencia eléctrica. Este incremento de resistencia se debe a incremento de la longitud del conductor y decremento en el área del conductor.\autoref{fig:galga-extensiometrica-300x202}
+El principio de este sensor es que el alargamiento de un conductor aumenta su resistencia eléctrica. Este incremento de resistencia se debe a incremento de la longitud del conductor y decremento en el área del conductor.
 
-\begin{figure}[h]
-	\centering
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.3\linewidth, height=0.2\textheight]{img/galga-extensiometrica-300x202}
-	\caption{}
-	\label{fig:galga-extensiometrica-300x202}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 17:} Galga extensiométrica.
+\end{center}
 
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/Sgalgas}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 18:} Funcionamiento de galgas extensiométricas.
+\end{center}
+
+\vspace{10mm}
 \textbf{Interruptores piezoeléctricos:}
 
-Son sensores que utilizan un material piezoeléctrico el cual señala que cuando cristales eléctricos asimétricos se deforman mediante una fuerza, se desarrolla un potencial eléctrico dentro de la red cristalina deformada. Son capaces de medir fuerzas, presiones, vibraciones y aceleraciones.\\\\\\\\\\\\\\\\
+Son sensores que utilizan un material piezoeléctrico el cual señala que cuando cristales eléctricos asimétricos se deforman mediante una fuerza, se desarrolla un potencial eléctrico dentro de la red cristalina deformada. Son capaces de medir fuerzas, presiones, vibraciones y aceleraciones.
 
 
-\begin{figure}[h]
-	\centering
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.3\linewidth, height=0.2\textheight]{img/S}
-	\caption[f]{}
-	\label{fig:s}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 19:} Sensor piezoeléctrico.
+\end{center}
 
-\textbf{Tipo de contacto: }
+\vspace{5mm} % Espacio entre imágenes
 
-\textbf{Interruptores de límite: }
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/Spiezoelectrico}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 20:} Funcionamiento de sensor piezoeléctrico.
+\end{center}
+\vspace{10mm}
+\textbf{Tipo de contacto : }
+\vspace{10mm}
+
+\textbf{Interruptores de límite : }
+
 Un interruptor de límite tiene un brazo mecánico sensible a la presión, y al momento  en el que un  objeto aplica presión en el brazo, se activa el interruptor.  Contiene un mecanismo de conmutación el cual su actuador activa el mecanismo que cierra o abre un circuito eléctrico. 
-\begin{figure}[h]
-	\centering
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/intlimite}
-	\caption{}
-	\label{fig:intlimite}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 21:} Interruptor de límite.
+\end{center}
 
-\textbf{Interruptores neumáticos: }
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Sinterruptordelimite}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 22:} Funcionamiento del interruptor de límite.
+\end{center}
+
+
+\vspace{10mm}
+\textbf{Interruptores neumáticos : }
+
 Son un tipo de dispositivo de conmutación que utiliza aire para funcionar. Al momento que se comprime el interruptor neumático envía un soplo a lo largo del tubo de PCV y llega a un interruptor de aire. El movimiento del aire activará el interruptor de aire, que creará el circuito eléctrico y activará un dispositivo.
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/neumatico}
-	\caption{}
-	\label{fig:neumatico}
-\end{figure} 
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\textbf{}\\\\\\\\
-\textbf{Transductores de presión: }
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/neumatico}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 23:} Interruptor neumático.
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Sinterruptorneumatico}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 24:} Funcionamiento del interruptor neumático.
+\end{center}
+
+\vspace{10mm}
+\textbf{}
+\textbf{Transductores de presión : }
+
 Es un dispositivo que convierte la presión en una señal de salida eléctrica, esta puede ser digital o analógica y es utilizada por otros dispositivos como controladores, alarmas y otros sistemas de circuito cerrado. Estos dispositivos son cruciales para garantizar la seguridad y eficiencia en los sistemas al proporcionar datos de presión precisos. 
 
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/transductorpresion}
-	\caption{}
-	\label{fig:transductorpresion}
-\end{figure} 
-\textbf{}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-\textbf{Tipo sin contacto }
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\textbf{Sensores de proximidad: }
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/transductorpresion}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 25:} Transductor de presión
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Stransmisordepresion}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 26:} Funcionamiento de transductor de presión
+\end{center}
+
+\vspace{10mm}
+\textbf{}
+\textbf{Tipo sin contacto: }
+
+\vspace{10mm}
+\textbf{Sensores de proximidad : }
+
 Existen dos tipos de sensores de proximidad : inductivo y capacitivo. Los sensores de proximidad inductivos se usan en lugar de interruptores de límite para la detección sin contacto de objetos metálicos. Los sensores de proximidad capacitivos se usan sobre la misma base que los sensores de proximidad inductivos, pero también pueden detectar objetos no metálicos.
 
 
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/proximidad}
-	\caption{}
-	\label{fig:proximidad}
-\end{figure} 
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth, height=0.3\textwidth]{img/proximidad}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 27:} Sensor de proximidad
+\end{center}
 
+\vspace{5mm} % Espacio entre imágenes
 
-\textbf{Sensores de microondas: }
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Ssensorproximidad}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 28:} Funcionamiento de sensor de proximidad
+\end{center}
+
+\vspace{10mm}
+\textbf{Sensores de microondas : }
+
 Son sensores que utilizan la frecuencia de microondas para detectar el movimiento en una zona mediante la emisión de impulsos de microondas y la posterior medición del reflejo de un objeto en movimiento. Funcionan según el principio del efecto Doppler. Cuando la frecuencia de microondas emitida encuentra un objeto en movimiento en su campo de detección, la frecuencia de retorno se altera, indicando así el movimiento.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/microondas}
-	\caption{}
-	\label{fig:microondas}
-\end{figure} 
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\textbf{Sensores ultrasónicos: }
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/microondas}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 29:} Sensor de microondas
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Smicroondas}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 30:} Funcionamiento de sensor de microondas
+\end{center}
+
+
+\vspace{10mm}
+\textbf{Sensores ultrasónicos : }
+
 Son sensores los cuales miden la distancia mediante el uso de ondas ultrasónicas. Está formado por un cabezal el cual emite una onda ultrasónica y recibe la onda reflejada que retorna desde el objeto. Este tipo de sensores miden la distancia al objeto  contando el tiempo entre la emisión y la recepción. 
 
 
-\begin{figure}[h]
-	\centering
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/ultrasonido}
-	\caption{}
-	\label{fig:ultrasonido}
-\end{figure} 
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 31:} Sensor ultrasónico
+\end{center}
 
-\textbf{Sensores Láser: }
-Este tipo de sensores utiliza un “laser” para lograr emitir luz en una línea recta. Su punto de haz visible hace que su alineación y posicionamiento sean sencillos. Este haz de luz es emitido desde el elemento emisor de luz en el transmisor y es recibido por el elemento de recepción de luz en el receptor. \\\\\\\\\
-\begin{figure}[h]
-	\centering
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/Sultrasonicos}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 32:} Funcionamiento de sensor ultrasónico
+\end{center}
+
+
+
+\vspace{10mm}
+\textbf{Sensores Láser : }
+
+Este tipo de sensores utiliza un “laser” para lograr emitir luz en una línea recta. Su punto de haz visible hace que su alineación y posicionamiento sean sencillos. Este haz de luz es emitido desde el elemento emisor de luz en el transmisor y es recibido por el elemento de recepción de luz en el receptor. 
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/laser}
-	\caption{}
-	\label{fig:laser}
-\end{figure} 
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 33:} Sensor láser
+\end{center}
 
+\vspace{5mm} % Espacio entre imágenes
 
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.4\linewidth]{img/Slaser}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 34:} Funcionamiento del sensor láser
+\end{center}
 
+\vspace{10mm}
+\textbf{Sensor de visión : }
 
-\textbf{Sensor de visión: }
 Estos sensores son un tipo de solución de visión artificial los cuales utilizan imágenes capturadas por una cámara para determinar la presencia, orientación y  precisión de las piezas. Estos sensores se diferencian de los “sistemas” de inspección de imagen, en que la cámara, la luz y el controlador están contenidos en una sola unidad, lo que simplifica la construcción y operación de la misma.
 
-\begin{figure}[h]
-	\centering
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.4\linewidth, height=0.2\textwidth]{img/vision}
-	\caption{}
-	\label{fig:vision}
-\end{figure} 
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 35:} Sensor de visión
+\end{center}
 
-\textbf{}\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\vspace{5mm} % Espacio entre imágenes
 
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.5\linewidth]{img/Svision}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 36:} Funcionamiento del sensor de visión
+\end{center}
+
+
+
+\vspace{10mm}
 \section{Adicionales}
-\textbf{Giroscopio:}
+\vspace{10mm}
+\textbf{Giroscopio :}
+
 Este tipo de sensores utiliza un “laser” para lograr emitir luz en una línea recta. Su punto de haz visible hace que su alineación y posicionamiento sean sencillos. Este haz de luz es emitido desde el elemento emisor de luz en el transmisor y es recibido por el elemento de recepción de luz en el receptor. 
 \vspace{10mm}  % Espacio de 10 puntos
 
-\begin{figure}[h]
-	\centering
+
+
+% Primera imagen con su descripción
+\begin{center}
 	\includegraphics[width=0.3\linewidth, height=0.23\textheight]{img/giros}
-	\caption{}
-	\label{fig:giros}
-\end{figure}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 37:} Giroscopio
+\end{center}
 
+\vspace{5mm} % Espacio entre imágenes
 
-\textbf{Acelerómetro:}
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{img/Sgiroscopio}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 38:} Funcionamiento del giroscopio
+\end{center}
+
+\vspace{10mm}
+\textbf{Acelerómetro :}
+
 Un acelerómetro mide la aceleración a través del cambio en la capacitancia. Su estructura incluye una masa conectada a un resorte, permitiendo que se desplace en una dirección específica dentro de un marco con placas fijas. Cuando se aplica una aceleración, la masa se mueve, lo que modifica la capacitancia entre las placas y la masa. Este cambio es medido y procesado para determinar el valor de la aceleración correspondiente.
-\vspace{10pt}  % Espacio de 10 puntos
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.3\linewidth, height=0.3\textheight]{img/acelerometro}
-	\caption{}
-	\label{fig:acelerometro}
-\end{figure}
 
-\textbf{}\\\\
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\textbf{Magnetómetro:}
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.2\linewidth, height=0.2\textheight]{img/acelerometro}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 39:} Acelerómetro
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{img/Sacelerometro}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 40:} Funcionamiento del acelerómetro
+\end{center}
+
+
+
+\vspace{10mm}
+\textbf{Magnetómetro :}
+
 El magnetómetro detecta el campo magnético terrestre utilizando principalmente el efecto Hall o, en menor medida, el efecto magnetorresistivo. En la mayoría de los sensores del mercado, el efecto Hall funciona de la siguiente manera: si se aplica una corriente a través de una placa conductora, los electrones fluyen en línea recta. Sin embargo, la presencia de un campo magnético altera esta trayectoria, desviando los electrones hacia un lado de la placa y generando una diferencia de voltaje proporcional a la intensidad del campo. Por otro lado, los sensores que emplean el efecto magnetorresistivo utilizan materiales sensibles al magnetismo, como aleaciones de hierro y níquel. Cuando estos materiales son expuestos a un campo magnético, su resistencia eléctrica varía, permitiendo la medición del campo.
 \vspace{10pt}  % Espacio de 10 puntos
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.3\linewidth]{img/magneto}
-	\caption{}
-	\label{fig:magneto}
-\end{figure}
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\vspace{20pt}  % Espacio de 20 puntos
+% Primera imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.2\linewidth]{img/magneto}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 41:} Magnetómetro
+\end{center}
+
+\vspace{5mm} % Espacio entre imágenes
+
+% Segunda imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.6\linewidth]{img/Smagnometro}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 42:} Funcionamiento del magnetómetro
+\end{center}
+
+
+\vspace{10mm}
 \textbf{LiDAR:}
 La tecnología LiDAR se emplea para crear mapas topográficos detallados y modelos 3D precisos, esenciales para la navegación de vehículos autónomos en entornos dinámicos. También se utiliza en la evaluación de riesgos naturales, como flujos de lava, deslizamientos de tierra, tsunamis e inundaciones.
 Un sistema LiDAR típico consta de varios componentes:
@@ -298,11 +614,17 @@ Un procesador que calcula el tiempo y la distancia para construir la nube de pun
 Para lograr una medición precisa, el sistema también incorpora componentes adicionales como electrónica de cronometraje, una unidad de medición inercial (IMU) y un GPS.
 \vspace{10pt}  % Espacio de 10 puntos
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.3\linewidth]{img/lidar}
-	\caption{}
-	\label{fig:lidar}
-\end{figure}
+% Espacio para evitar que LaTeX mueva imágenes
+\vspace{5mm}
 
-\textbf{}\\\\\\\\-
+% Imagen con su descripción
+\begin{center}
+	\includegraphics[width=0.3\linewidth]{img/lidar}
+	
+	\vspace{2mm} % Espacio entre imagen y descripción
+	
+	\textbf{Figura 43:} Sensor LiDAR
+\end{center}
+\newpage  % Salto de página forzado
+
+
