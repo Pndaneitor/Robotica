@@ -53,8 +53,8 @@ Normalmente se tiene que escribir `source /opt/ros/jazzy/setup.bash` cada vez qu
 ```bash
 echo "alias sb='source ~/.bashrc'" >> ~/.bashrc
 echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
-echo "export LIBGL_ALWAYS_SOFTWARE=1"
-echo "export LIBGL_ALWAYS_INDIRECT=0"
+echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc
+echo "export LIBGL_ALWAYS_INDIRECT=0" >> ~/.bashrc
 source ~/.bashrc
 ```
 Si escribes `sb`, se actualizará la terminal, por lo que se recomienda usarlo si se cambia el archivo `.bashrc`, que es la configuración de la terminal.
