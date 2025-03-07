@@ -41,7 +41,7 @@ function plotRobot(A, offset, tipo, frame_scale, viewAngle)
     end
 
     % Sustituir en cada A la variable simbólica correspondiente
-    A_sub = sym(zeros(4,4,n));
+    A_sub = zeros(4,4,n);
     for i = 1:n
         if isa(A(:,:,i), 'sym')
             if tipo(i) == 'r'
