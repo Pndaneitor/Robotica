@@ -3,21 +3,21 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="ROBOTARMURDF">
+  name="armurdf2">
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0 0 0.07921"
+        xyz="5.5511E-17 5.5511E-17 0.07921"
         rpy="0 0 0" />
       <mass
         value="17.682" />
       <inertia
         ixx="0.3246"
-        ixy="-3.3874E-17"
-        ixz="-3.288E-17"
+        ixy="-2.9144E-17"
+        ixz="-3.8784E-17"
         iyy="0.3246"
-        iyz="1.7062E-17"
+        iyz="1.5477E-17"
         izz="0.41606" />
     </inertial>
     <visual>
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/base_link.STL" />
+          filename="package://armurdf2/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/base_link.STL" />
+          filename="package://armurdf2/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,7 +48,7 @@
     name="link1">
     <inertial>
       <origin
-        xyz="1.5626E-10 1.6653E-16 0.37308"
+        xyz="1.5626E-10 1.1102E-16 0.37308"
         rpy="0 0 0" />
       <mass
         value="15.531" />
@@ -57,7 +57,7 @@
         ixy="-1.3459E-09"
         ixz="1.3573E-09"
         iyy="0.32963"
-        iyz="-7.069E-17"
+        iyz="-6.2809E-17"
         izz="0.11715" />
     </inertial>
     <visual>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link1.STL" />
+          filename="package://armurdf2/meshes/link1.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link1.STL" />
+          filename="package://armurdf2/meshes/link1.STL" />
       </geometry>
     </collision>
   </link>
@@ -101,6 +101,9 @@
       upper="3.142"
       effort="160"
       velocity="3" />
+    <dynamics
+      damping="0"
+      friction="0" />
   </joint>
   <link
     name="link2">
@@ -124,7 +127,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link2.STL" />
+          filename="package://armurdf2/meshes/link2.STL" />
       </geometry>
       <material
         name="">
@@ -138,7 +141,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link2.STL" />
+          filename="package://armurdf2/meshes/link2.STL" />
       </geometry>
     </collision>
   </link>
@@ -156,9 +159,12 @@
       xyz="0.0031451 0 1" />
     <limit
       lower="-1.57"
-      upper="1.57"
+      upper="1.309"
       effort="120"
       velocity="3" />
+    <dynamics
+      damping="0"
+      friction="0" />
   </joint>
   <link
     name="link3">
@@ -171,9 +177,9 @@
       <inertia
         ixx="0.034525"
         ixy="-0.0016663"
-        ixz="-1.1664E-17"
+        ixz="-1.717E-17"
         iyy="0.053729"
-        iyz="-8.5294E-19"
+        iyz="-6.5698E-18"
         izz="0.063531" />
     </inertial>
     <visual>
@@ -182,7 +188,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link3.STL" />
+          filename="package://armurdf2/meshes/link3.STL" />
       </geometry>
       <material
         name="">
@@ -196,7 +202,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link3.STL" />
+          filename="package://armurdf2/meshes/link3.STL" />
       </geometry>
     </collision>
   </link>
@@ -211,12 +217,15 @@
     <child
       link="link3" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
-      lower="1.57"
-      upper="-1.57"
+      lower="-1.57"
+      upper="1.0472"
       effort="40"
       velocity="2.2" />
+    <dynamics
+      damping="0"
+      friction="0" />
   </joint>
   <link
     name="link4">
@@ -240,7 +249,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link4.STL" />
+          filename="package://armurdf2/meshes/link4.STL" />
       </geometry>
       <material
         name="">
@@ -254,7 +263,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ROBOTARMURDF/meshes/link4.STL" />
+          filename="package://armurdf2/meshes/link4.STL" />
       </geometry>
     </collision>
   </link>
@@ -271,9 +280,12 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="-3.14"
+      lower="-3.14"
+      upper="3.14"
       effort="27"
       velocity="2.3" />
+    <dynamics
+      damping="0"
+      friction="0" />
   </joint>
 </robot>
