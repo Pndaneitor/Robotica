@@ -22,6 +22,8 @@ __pycache__/
 *.exe
 build/
 dist/
+install/
+log/
 
 # Configuración de Visual Studio Code
 .vscode/
@@ -83,3 +85,9 @@ dist/
 *.nav
 *.snm
 *.vrb
+
+# Otros
+src/matlab/cinematica/cinematica_dir_completo.m
+src/matlab/cinematica/cinematica_inv_completo.mlx
+test/pruebaCinematicaDirecta.m
+era_robot/

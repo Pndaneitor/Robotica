@@ -1,0 +1,6 @@
+roboticstoolbox-python[swift]
+spatialmath-python
+numpy
+matplotlib
+ipykernel
+ipywidgets
