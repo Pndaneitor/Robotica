@@ -24,6 +24,8 @@ build/
 dist/
 install/
 log/
+devel/
+.catkin_tools/
 
 # Configuración de Visual Studio Code
 .vscode/
@@ -91,3 +93,4 @@ src/matlab/cinematica/cinematica_dir_completo.m
 src/matlab/cinematica/cinematica_inv_completo.mlx
 test/pruebaCinematicaDirecta.m
 era_robot/
+test/python_cinematica_inversa.ipynb

@@ -1,4 +1,4 @@
-roboticstoolbox-python[swift]
+roboticstoolbox-python
 spatialmath-python
 numpy
 matplotlib

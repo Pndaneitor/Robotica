@@ -1,41 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# 1) Detecta tu ROS 2 (asume /opt/ros/<distro>)
+ROS_DISTRO=$(ls /opt/ros | head -n1)
+echo "Usando ROS 2: $ROS_DISTRO"
 
-# 1. Detectar versión de ROS instalada
-if [ -d "/opt/ros" ]; then
-    ROS_VERSION=$(ls /opt/ros | head -n 1)
-    ROS_SETUP="/opt/ros/$ROS_VERSION/setup.bash"
-    echo "Versión de ROS detectada: $ROS_VERSION"
-else
-    echo "No se encontró instalación de ROS en /opt/ros"
-    exit 1
+# 2) Source de ROS 2 y de tu workspace
+source /opt/ros/$ROS_DISTRO/setup.bash
+source ~/Robotica/install/setup.bash
+
+# 3) (Opcional) instala tus dependencias Python
+#    Solo si has añadido librerías nuevas a requirements.txt
+if [ -f "requirements.txt" ]; then
+  echo "Instalando Python deps…"
+  pip3 install --user -r requirements.txt
 fi
 
-# 2. Activar entorno ROS
-if [ -f "$ROS_SETUP" ]; then
-    echo "Activando entorno ROS..."
-    source "$ROS_SETUP"
-else
-    echo "No se encontró el archivo: $ROS_SETUP"
-    exit 1
-fi
-
-# 3. Instalar dependencias Python si existe requirements.txt
-REQS_FILE="src/mi_paquete/requirements.txt"
-if [ -f "$REQS_FILE" ]; then
-    echo "Instalando dependencias Python desde $REQS_FILE..."
-    pip install -r "$REQS_FILE" --user
-else
-    echo "No se encontró $REQS_FILE. Se omite instalación de paquetes."
-fi
-
-# 4. Compilar con colcon
-echo "Compilando workspace ROS 2 con colcon..."
-colcon build --symlink-install
-
-# 5. Source del entorno local generado por colcon
-if [ -f "install/setup.bash" ]; then
-    echo "Activando entorno local del workspace..."
-    source install/setup.bash
-else
-    echo "No se encontró install/setup.bash. Revisa si colcon build tuvo errores."
-fi
+echo "Entorno ROS 2 listo."
+# 
