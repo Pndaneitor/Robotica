@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: era_description
+    relative_path: urdf/era_description.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/era_description.srdf
+  CONFIG:
+    author_name: Ivan medina
+    author_email: j.ivan.medinag@hermosillo.tecnm.mx
+    generated_timestamp: 1747513573

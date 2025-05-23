@@ -8,23 +8,26 @@ Los paquetes de ROS tienen un estandar, donde se recomienda (aunque no es obliga
 
 <- El paso anterior es [Exportar SolidWorks a URDF](sw2urdf.md)
 
-- [Importar proyecto en Ubuntu](#importar-proyecto-en-ubuntu)
+- [1. Importar proyecto en Ubuntu](#1-importar-proyecto-en-ubuntu)
   - [En resumen:](#en-resumen)
-- [Copiar a Ubuntu el paquete del robot](#copiar-a-ubuntu-el-paquete-del-robot)
-- [Editar CMakeLists.txt](#editar-cmakeliststxt)
-- [Editar package.xml](#editar-packagexml)
-- [Modificar el URDF](#modificar-el-urdf)
-  - [El mundo como eslabón](#el-mundo-como-eslabón)
-  - [Articulación con mímica](#articulación-con-mímica)
-  - [Electroimán](#electroimán)
-  - [Transmisión](#transmisión)
-  - [Plugin de gazebo para el controlador](#plugin-de-gazebo-para-el-controlador)
-  - [Autocolisión](#autocolisión)
-- [Definir controladores de ROS usando YAML](#definir-controladores-de-ros-usando-yaml)
-- [MoveIt Setup Assistant](#moveit-setup-assistant)
+- [2 Copiar a Ubuntu el paquete del robot](#2-copiar-a-ubuntu-el-paquete-del-robot)
+- [3 Editar CMakeLists.txt](#3-editar-cmakeliststxt)
+- [4 Editar package.xml](#4-editar-packagexml)
+- [5 Modificar el URDF](#5-modificar-el-urdf)
+  - [5.1 El mundo como eslabón](#51-el-mundo-como-eslabón)
+  - [5.2 Articulación con mímica](#52-articulación-con-mímica)
+  - [5.3 Electroimán](#53-electroimán)
+  - [5.4 Transmisión](#54-transmisión)
+  - [5.5 Plugin de gazebo para el controlador](#55-plugin-de-gazebo-para-el-controlador)
+  - [5.6 Autocolisión](#56-autocolisión)
+- [6 Definir controladores de ROS usando YAML](#6-definir-controladores-de-ros-usando-yaml)
+- [7 Crear archivo launch del robot en Gazebo](#7-crear-archivo-launch-del-robot-en-gazebo)
+- [8 Ejecutar el archivo launch por primera vez en Gazebo](#8-ejecutar-el-archivo-launch-por-primera-vez-en-gazebo)
+- [9 Crear paquete con MoveIt Setup Assistant](#9-crear-paquete-con-moveit-setup-assistant)
+- [10 Probar el paquete creado con MoveIt Setup Assistance](#10-probar-el-paquete-creado-con-moveit-setup-assistance)
 
 
-## Importar proyecto en Ubuntu
+## 1. Importar proyecto en Ubuntu
 
 Los pasos descritos aquí aparecen en su mayoría en el pdf con el [tutorial de Age of Robotics](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main/blob/main/Importing_URDF_Package_from_Soloidworks_in_ROS.pdf), los cuales se pueden ver también en [youtube](https://www.youtube.com/watch?v=ZWliEJfNtlM). Aun así, recomiendo seguir los primeros pasos para crear el Workspace dentro del repositorio de GitHub de la materia.
 
@@ -96,15 +99,15 @@ catkin build
 ```
 5.  Abrirlo por defecto en terminal.
 ```
-echo 'source ~/Robotica/install/setup.bash' >> ~/.bashrc
+echo 'source ~/Robotica/devel/setup.bash' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## Copiar a Ubuntu el paquete del robot
+## 2 Copiar a Ubuntu el paquete del robot
 
 Lo siguiente es copiar todos los archivos y carpetas del paquete generado por `sw2urdf` al generado en la carpeta `src/`.
 
-## Editar CMakeLists.txt
+## 3 Editar CMakeLists.txt
 El archivo `CMakeLists.txt` contiene la configuración de C++, por lo que los nodos programados en ese lenguaje deben añadirse ahí. También se añaden los paquetes necesarios para ejecutar el paquete, por lo que si su archivo se parece a esto
 
 ```cmake
@@ -156,7 +159,7 @@ foreach(dir config launch meshes urdf)
 endforeach(dir)
 ```
 
-## Editar package.xml
+## 4 Editar package.xml
 También tienen que cambiar el archivo `package.xml`. Cambien donde dice `MI_ROBOT`, el autor y correo. Si quieren poner múltiples autores, solo tienen que poner la linea de <author> y <maintainer> varias veces hasta que estén todos los integrantes.
 
 ```xml
@@ -216,7 +219,7 @@ catkin build
 ```
 para instalar todos los paquetes que se encuentran en `package.xml` y compilarlo.
 
-## Modificar el URDF
+## 5 Modificar el URDF
 Ahora se debe modificar el URDF para que se pueda simular en gazebo. Este archivo describe todos los componentes del robot usando el lenguaje xml. 
 
 En xml, una etiqueta empieza con `<` y termina con `/>`. Si queremos que una etiqueta contenga varias etiquetas dentro, se puede poner en una línea `<etiqueta>` y en otra línea `</etiqueta>` con el mismo nombre pero con `/`, de forma que todo lo que esté dentro de las dos forme parte de `etiqueta`.
@@ -303,7 +306,7 @@ Para más información sobre URDF, pueden ver en la [página de ROS](https://wik
 </robot>
 ```
 
-### El mundo como eslabón
+### 5.1 El mundo como eslabón
 Lo primero es fijar el robot en el mundo para que no se tambalee ni se caiga. Para eso se añade debajo de `<robot  name="MI_ROBOT">` el eslabón `world` y la articulación `base_joint`. Cabe destacar que si nombraron diferente a la primera articulación, entonces no debe ir `base_link` (y probablemente tampoco `base_joint`), sino algo así como `link_0` y `joint_0`.
 ```xml
 <robot
@@ -324,7 +327,7 @@ Lo primero es fijar el robot en el mundo para que no se tambalee ni se caiga. Pa
     <inertial>
 ```
 
-### Articulación con mímica
+### 5.2 Articulación con mímica
 La mayoría de robots con pinzas como efector final tienen un solo actuador para mover dos articulaciones porque suelen estar centradas e invertidas usando engranes, como la que se muesstra en la imagen.
 
 ![Pinza robot](assets/Pinza_robot.png)
@@ -352,7 +355,7 @@ Para lograr eso, se simula que una articulación está haciendo mímica de otra.
   </joint>
 ```
 
-### Electroimán
+### 5.3 Electroimán
 Si el robot que tienen usa un electroimán como efector final, tendrán que añadirlo. usualmente los venden con forma cilíndrica como se muestra en la imagen, pero tienen que añadir el eslabón que lo represente.
 
 ![electroimán](assets/electroiman.png)
@@ -407,7 +410,7 @@ Y lo tendrían que añadir después del último `</joint>` por ejemplo.
   </joint>
 ```
 
-### Transmisión
+### 5.4 Transmisión
 La etiqueta de transmisión es necesaria para usar `ros_control`, pero permite simular una caja de engranajes o un reductor de velocidad.
 
 Pueden agregarlas antes de `</robot>`, que es la última etiqueta. Debe ser una por cada articulación (si tienen 4 articulaciones, deben de copiar y pegar el código 4 veces) y solo deben cambiar `joint_n` y `link_n` con el número correspondiente.
@@ -446,7 +449,7 @@ Pueden poner que los motores tienen ya la fuerza total y que la transmisión sol
 ```
 y el gear ratio que diga la caja de engranajes que usen dentro de `<mechanicalReduction>`.
 
-### Plugin de gazebo para el controlador
+### 5.5 Plugin de gazebo para el controlador
 La etiqueta <gazebo> es para parámetros específicos del simulador homónimo. Pueden ser parámetros globales como el que está abajo o para algún eslabón o articulación específica, como el que viene en el ejemplo de [Autocolisión](#autocolisión) con `<gazebo reference="link_n">`.
 
 Podemos hacer que el simulador Gazebo haga todas las cosas avanzadas que queramos usando plugins. Algunos ya están hechos en Gazebo como el que aparece aquí, pero podríamos programar los nuestros en python o C++. 
@@ -465,7 +468,7 @@ Solo tienen que añadir esto antes de `</robot>`.
 </robot>
 ```
 
-### Autocolisión
+### 5.6 Autocolisión
  
 `<selfCollide>` permite que los eslabones que se pueden mover, no se atraviesen entre sí, como ocurre en la vida real. También se tiene que poner la etiqueta para cada eslabón, así que copien lo siguiente el número de veces que los eslabones del robot.
 ```xml
@@ -474,8 +477,8 @@ Solo tienen que añadir esto antes de `</robot>`.
   </gazebo>
 ```
 
-## Definir controladores de ROS usando YAML
-Se debe crear un archivo `.yaml` en la carpeta "config" del paquete de ROS del robot. Este archivo contendrá un controlador de articulaciones para:
+## 6 Definir controladores de ROS usando YAML
+Primero deben ir a la carpeta `config` del paquete de ROS del robot (por ejemplo, `/src/MIROBOT/config`) y crear un archivo llamado `joint_trajectory_controller.yaml` . Este archivo contendrá un controlador de articulaciones para:
 - articulaciones del brazo robótico
 - articulaciones del efector final
 - publicar los estados de las articulaciones y cualquier otro
@@ -519,6 +522,115 @@ joint_state_controller:
   publish_rate: 50  # Frecuencia en Hz
 ```
 
-## MoveIt Setup Assistant
+## 7 Crear archivo launch del robot en Gazebo
+Un archivo Launch te permite ejecutar múltiples comandos o nodos en una sola terminal.
 
-Un tutorial más completo viene en la [página oficial](https://moveit.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html) y es el que recomiendo que sigan, pero igual pueden ver [el PDF](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main/blob/2e713d1acf99981a315667f32bbb82ab184ffcfe/Importing_URDF_Package_from_Soloidworks_in_ROS.pdf) que hizo AgeofRobotics o su video que aparece en el PDF.
+Para crearlo, ve a la carpeta `/src/MIROBOT/launch` y crea un nuevo archivo `MIROBOT.launch`. En mi caso, se llama `era_description.launch`.
+
+Ábre el archivo para editarlo y pon lo siguiente
+```xml
+<launch>
+    <arg name="arg_x" default="0.00" />
+    <arg name="arg_y" default="0.00" />
+    <arg name="arg_z" default="0.00" />
+    <arg name="arg_R" default="0.00" />
+    <arg name="arg_P" default="0.00" />
+    <arg name="arg_Y" default="0.00" />
+
+    <!--Urdf file path-->
+    <param name="robot_description" textfile="$(find Your_package_name)/urdf/urdf_file_name.urdf"/>
+
+    <!--spawn a empty gazebo world-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
+    
+    <!--spawn model-->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-x $(arg arg_x) -y $(arg arg_y) -z $(arg arg_z) -Y $(arg arg_Y) -param robot_description -urdf -model Your_Robot_name_defined_in_urdf_file -J joint_1 0.0 -J joint_2 0.0 -J joint_3 0.0 -J joint_4 0.0 -J joint_5 0.0 -J joint_6 0.0 -J joint_7 0.0" />
+    
+    <!--Load and launch the joint trajectory controller-->
+    <rosparam file ="$(find Your_package_name)/config/Your_arm_trajectory_contoller_file_name.yaml" command="load"/>
+    <node name= "controller_spawner" pkg= "controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller robot_arm_controller hand_ee_controller"/>
+    
+    <!-- Robot State Publisher for TF of each joint: publishes all the current states of the joint, then RViz can visualize -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+</launch>
+```
+
+Luego tendrán que modificar algunas variables. Recomiendo que sigan el [tutorial de Youtube](https://www.youtube.com/watch?v=NY7f76m6xAM) para completarlo, tienen que abrir Visual Studio Code, presionar `ctrl`+`F` (puedes hacerlo después de seleccionar la palabra) y dar clic en `>` para buscar y reemplazar. Entonces presionas en el botón que tiene un símbolo parecido a `ab -> ac` o presiona `ctrl`+`alt`+`enter`.
+
+![buscar_y_reemplazar](assets/buscar_y_reemplazar.png)
+
+Entonces tienen que reemplazar los sigueintes parámetros (algunos parecen repetitivos, pero es para explicar que podrían ser nombres diferentes):
+
+- `Your_package_name`: Nombre de tu paquete (carpeta). En el que subí al repositorio de ejemplo es `era_description`.
+- `urdf_file_name`: Nombre del archivo del URDF. Normalmente es el mismo nombre del paquete, por lo que en mi ejemplo también es `era_description`.
+- `Your_Robot_name_defined_in_URDF_file`: Nombre del robot dentro del archivo URDF. Normalmente es el mismo, por lo que en mi ejemplo también es `era_description`.
+- `-J`: Aquí no vas a reemplazarlo, sino que debes asegurarte de que cada articulación tiene el nombre y el número de articulaciones correcto. En las pinzas del robot que puse de ejemplo, una articulación se llama `joint_6_1`, por lo que debe definirse como `-J joint_6_1 0.0`, mientras que si solo tengo 6 varticulaciones máximo, deben borrar la que dice `-J joint_7 0.0`.
+- `Your_arm_trajectory_contoller_file_name`: El nombre del archivo de configuración de los controladores dle robot. Si lo nombraron igual que en [Definir controladores de ROS usando YAML](#definir-controladores-de-ros-usando-yaml), entonces usen el nombre `joint_trajectory_controller`.
+- `joint_state_controller robot_arm_controller hand_ee_controller`: si su robot tiene pinzas, deben de dejarlo como está. En caso contrario, eliminen `hand_ee_controller`.
+
+Lo siguiente es hacer `catkin build` en el workspace.
+```bash
+cd ~/Robotica
+catkin build
+sb
+```
+
+## 8 Ejecutar el archivo launch por primera vez en Gazebo
+En una terminal, ejecuta
+```bash
+roscore
+```
+
+Luego en otra ejecuta lo siguiente, cambiando el nombre del paquete y de archivo.
+```bash
+roslaunch tu_paquete tu_archivo_launch.launch
+```
+
+En mi caso, es 
+```bash
+roslaunch era_description era_description.launch
+```
+
+Al hacer esto, el ÚNICO ERROR debe ser algo parecido a lo siguiente de color rojo:
+
+```bash
+[ERROR] [1747510277.338864951, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_1
+[ERROR] [1747510277.339717345, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_2
+[ERROR] [1747510277.340318615, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_3
+[ERROR] [1747510277.341178963, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_4
+[ERROR] [1747510277.341910515, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_5
+[ERROR] [1747510277.342571062, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_6_1
+[ERROR] [1747510277.343286497, 0.138000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_6_2
+```
+Si encuentras algún otro error, ahí mismo te dice más o menos cómo solucionarlo (por ejemplo, `no se encuentra base_link y no se puede conectar a base_joint` o algo parecido).
+
+## 9 Crear paquete con MoveIt Setup Assistant
+
+Un tutorial más completo viene en la [página oficial](https://moveit.github.io/moveit_tutorials/doc/setup_assistant/setup_assistant_tutorial.html#step-1-start) y es el que recomiendo que sigan, pero igual pueden ver [el PDF](https://github.com/ageofrobotics/import_your_custom_urdf_package_to_ROS-main/blob/2e713d1acf99981a315667f32bbb82ab184ffcfe/Importing_URDF_Package_from_Soloidworks_in_ROS.pdf) que hizo AgeofRobotics o su [video](https://youtu.be/DZB5_4JCS0A) que aparece en el PDF.
+
+## 10 Probar el paquete creado con MoveIt Setup Assistance
+Pueden seguir nlo de este tutorial en [este video](https://youtu.be/FM6zFxPXlmg).
+
+El asistente crea los siguientes paquetes:
+- `demo.launch`: Abre el robot sólo en Rviz.
+- `gazebo.launch`: Abre el robot sólo en gazebo.
+- `demo_gazebo.launch`: Abre el robot tanto en Rviz como en Gazebo. Pero, las simulaciones Rviz y Gazebo no están conectadas entre sí debido a un controlador Moveit incompleto o controlador ROS.
+
+Entonces para probarlo, tienen que construir el paquete.
+1. Ve al workspace de Robótica
+2. Construye el paquete
+3. Enlaza el workspace
+  ```bash
+  cd ~/Robotica
+  catkin build
+  sb
+  ```
+4. Ejecuta el archivo `demo_gazebo.launch`. Solo recuerda cambiar el nombre de `TuPaqueteDeMoveIt` por el que guardaste con MoveIt.
+  ```bash
+  roslaunch TuPaqueteDeMoveIt demo_gazebo.launch
+  ```
+  En mi caso, sería `roslaunch era_moveit_config demo_gazebo.launch`.
+1. Espera a que aparezca una ventana de Gazebo y otra de Rviz.
+2. Usa algunos de los comandos que vienen en [el video](https://youtu.be/FM6zFxPXlmg).
+3. Para cerrarlo, haz clic en algún lugar de la terminal y presiona `Ctrl`+`c`.
