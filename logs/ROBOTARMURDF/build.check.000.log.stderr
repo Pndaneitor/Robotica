@@ -1,0 +1,24 @@
+CMake Warning (dev) at CMakeLists.txt:3 (project):
+  Policy CMP0048 is not set: project() command manages VERSION variables.
+  Run "cmake --help-policy CMP0048" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  The following variable(s) would be set to empty:
+
+    CMAKE_PROJECT_VERSION
+    CMAKE_PROJECT_VERSION_MAJOR
+    CMAKE_PROJECT_VERSION_MINOR
+    CMAKE_PROJECT_VERSION_PATCH
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+[33mWARNING: Package name "ROBOTARMURDF" does not follow the naming conventions. It should start with a lower case letter and only contain lower case letters, digits, underscores, and dashes.[0m
+[31m[1mCMake Error[0m at /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:196 (message):
+  catkin_package() the catkin package 'geometry_msgs' has been
+  find_package()-ed but is not listed as a build dependency in the
+  package.xml
+[36mCall Stack (most recent call first):[0m
+  /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  CMakeLists.txt:15 (catkin_package)
+
+
+make: *** [Makefile:334: cmake_check_build_system] Error 1

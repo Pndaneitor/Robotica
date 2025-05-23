@@ -1,0 +1,14 @@
+# config/joint_trajectory_controller.yaml
+
+# Controlador de las articulaciones del brazo
+robot_arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: 
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+# Controlador que publica continuamente los estados/posiciones de las articulaciones. 
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50  # Frecuencia en Hz
