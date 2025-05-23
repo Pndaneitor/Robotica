@@ -24,6 +24,7 @@ build/
 dist/
 install/
 log/
+logs/
 devel/
 .catkin_tools/
 
@@ -66,6 +67,9 @@ devel/
 *.lof
 *.lot
 *.lol
+*/_minted/
+*/build/
+
 
 # Archivos de backup o temporales
 *~

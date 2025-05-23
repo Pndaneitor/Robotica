@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: armurdf2
+    relative_path: urdf/armurdf2.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/armurdf2.srdf
+  CONFIG:
+    author_name: Diego Vásquez
+    author_email: dijey572@gmail.com
+    generated_timestamp: 1748021040

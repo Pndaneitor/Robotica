@@ -10,7 +10,7 @@ También existe otro [tutorial enfocado en robots móviles](https://emanual.robo
 - [Actualiza los paquetes actuales](#actualiza-los-paquetes-actuales)
 - [Ejecuta el comando de una línea](#ejecuta-el-comando-de-una-línea)
 - [Paquetes extras de ROS y Gazebo](#paquetes-extras-de-ros-y-gazebo)
-- [Configura el entorno de ROS 2](#configura-el-entorno-de-ros-2)
+- [Configura el entorno de ROS](#configura-el-entorno-de-ros)
 - [Terminado](#terminado)
 
 -> El siguiente paso es [Exportar SolidWorks a URDF](sw2urdf.md).
@@ -59,10 +59,11 @@ ros-noetic-gmapping \
 ros-noetic-navigation \
 ros-noetic-interactive-markers \
 ros-noetic-moveit-setup-assistant \
+python3-catkin-tools \
 gedit
 ```
 
-## Configura el entorno de ROS 2
+## Configura el entorno de ROS
 Normalmente se tiene que escribir `source /opt/ros/noetic/setup.bash` cada vez que se quiera configurar el entorno de ROS, pero puedes añadir lo siguiente para que siempre se inicie.
 ```bash
 echo "alias sb='source ~/.bashrc'       #macro para actualizar terminal" >> ~/.bashrc
