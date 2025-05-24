@@ -1,14 +1,14 @@
 \section{Cinemática} \label{sec:cinematica}
 
-Explicar su definición en base a lo que viene en libros o de los archivos de Matlab. Diferenciar entre \textbf{Cinemática directa} y \textbf{Cinemática inversa}.
-Para el proceso sobre cómo se llevó a cabo el algoritmo en Matlab, ir a la  \hyperref[sec:proceso_cinematica]{sección del proceso de Cinemática}.
+La cinemática es una rama de la física que estudia el movimiento de los objetos sólidos en función del tiempo, sin considerar las causas (fuerzas) que lo originan. Este análisis se basa en variables como la posición, la velocidad y la aceleración, y considera tres elementos fundamentales: el espacio, el tiempo y el móvil. En el contexto de la robótica, se aplica especialmente a sistemas de cuerpos rígidos como los manipuladores, describiendo sus trayectorias sin involucrar dinámicas.
+
+En robótica, la cinemática se clasifica principalmente en dos tipos: \textbf{cinemática directa} y \textbf{cinemática inversa}. La primera permite determinar la posición y orientación del efector final a partir de los valores articulares del robot, mientras que la segunda se enfoca en calcular los valores articulares que permiten alcanzar una posición y orientación deseadas del efector final.
 
 \subsection{Cinemática Directa}
-Explicar sobre la definición geométrica usando Denavit Hartenberg con el algoritmo y las matemáticas.
 
-\subsection{Cinemática Diferencial}
-Aquí explicarán sobre el jacobiano para la cinemática diferencial.
+La cinemática directa (o directa geométrica) establece la relación entre los ángulos articulares del robot y la posición y orientación del efector final. Para esta tarea, comúnmente se emplea el método de Denavit-Hartenberg (DH), que permite representar de forma sistemática la configuración espacial del robot mediante transformaciones homogéneas.
 
-\subsection{Cinemática Inversa}
-Explicar su definición y cómo se relaciona el gradiente con el jacobiano. Cabe destacar que existen multitud de métodos y en mi clase solo usaron un método, pero aquí pueden explicar las imágenes que vienen en Matlab.
+Dichas transformaciones permiten obtener no solo la ubicación del efector final, sino también su orientación en el espacio. Además, conceptos como el jacobiano geométrico son fundamentales para analizar la velocidad y aceleración del sistema en función de sus variables articulares.
+
+Un desarrollo detallado del análisis computacional aplicado a este modelo puede encontrarse en la \hyperref[sec:proceso_cinematica]{sección del proceso de Cinemática}.
 
