@@ -15,8 +15,69 @@ Si les sale el error \texttt{latexminted no se reconoce como un comando interno 
 \end{terminal}
 
 \subsection{Cinemática Directa}
-Explicar las partes importantes del código de la cinemática directa.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+
+La cinemática directa permite determinar la posición y orientación del efector final del robot a partir de los valores articulares. A continuación, se explican las secciones más relevantes del código empleado.
+
+\subsubsection*{Creación de la estructura del robot}
+
+Se leyó la tabla DH del robot desde un archivo CSV, y se construyó su modelo mediante la función \texttt{crear\_robot}, que genera las matrices de transformación homogénea necesarias para cada eslabón.
+
+\begin{matlabcode}{matlab}
+	dh = readtable('datos\tabla_DH\robotnuestro.csv');
+	robot = crear_robot(dh, A0);
+\end{matlabcode}
+
+\subsubsection*{Generación de trayectorias articulares}
+
+Para simular el movimiento del robot, se generaron trayectorias para las posiciones (\texttt{q}), velocidades (\texttt{dq}) y aceleraciones (\texttt{ddq}) articulares. Estas se utilizaron como entrada para los cálculos de cinemática.
+
+\begin{matlabcode}{matlab}
+	[q, dq, ddq] = trayectoria_q(robot, t, periodo);
+\end{matlabcode}
+
+\subsubsection*{Cálculo de posición y orientación del efector}
+
+Se recorrió cada instante de tiempo para actualizar la configuración del robot, obteniendo así la posición y orientación del efector final en el espacio. La orientación se calculó en ángulos de Euler a partir de la matriz de rotación.
+
+\begin{matlabcode}{matlab}
+	for k = 1:length(t)
+	robot = actualizar_robot(robot, q(:,k));
+	posicion(:,k) = robot.T(1:3,4,end);
+	R(:,:,k) = robot.T(1:3,1:3,end);
+	orientacion(:,k) = rotMat2euler(R(:, :, k), secuencia);
+	end
+\end{matlabcode}
+
+\subsubsection*{Cálculo de velocidades y aceleraciones}
+
+Usando el Jacobiano geométrico, se calcularon la velocidad y aceleración lineal y angular del efector final. Se aplicó la fórmula:
+
+\[
+\dot{x} = J(q)\,\dot{q}, \quad \ddot{x} = J(q)\,\ddot{q} + \dot{J}(q)\,\dot{q}
+\]
+
+\begin{matlabcode}{matlab}
+	vel_linear(:,k)  = Jv(:,:,k) * dq(:,k); 
+	vel_angular(:,k) = Jw(:,:,k) * dq(:,k);  
+	
+	acel_linear(:,k)  = Jv(:,:,k) * ddq(:,k) + dJv(:,:,k) * dq(:,k); 
+	acel_angular(:,k) = Jw(:,:,k) * ddq(:,k) + dJw(:,:,k) * dq(:,k);
+\end{matlabcode}
+
+\subsubsection*{Visualización}
+
+Se generó una animación para validar visualmente el movimiento del robot. Esta animación fue útil para corroborar que la cinemática directa estaba funcionando correctamente.
+
+\begin{matlabcode}{matlab}
+	g = crear_grafica_robot();
+	for k = 1:length(t_animacion)
+	robot = actualizar_robot(robot, q_anim(:,k));
+	g = dibujar_robot(g, robot);
+	end
+\end{matlabcode}
+
+Las gráficas de resultados correspondientes a posición, orientación, velocidad y aceleración se presentan en la sección de \autoref{chap:resultados}.
+
 \subsection{Cinemática Diferencial}
 Explicar las partes importantes del código de la cinemática diferencial.
 Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.

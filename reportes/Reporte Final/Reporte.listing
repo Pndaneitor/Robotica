@@ -1,1 +1,5 @@
-	pip install latexminted==0.5.1
+	g = crear_grafica_robot();
+	for k = 1:length(t_animacion)
+	robot = actualizar_robot(robot, q_anim(:,k));
+	g = dibujar_robot(g, robot);
+	end

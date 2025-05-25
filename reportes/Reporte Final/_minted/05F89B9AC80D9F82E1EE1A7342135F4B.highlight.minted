@@ -1,0 +1,3 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}\PYG{n}{q}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dq}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ddq}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{trayectoria\PYGZus{}q}\PYG{p}{(}\PYG{n}{robot}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{periodo}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}
