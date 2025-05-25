@@ -1,6 +1,45 @@
 \subsection{Partes} \label{subsec:partes}
-Aquí pondrán la información de las piezas del robot. Pueden eliminar las siguientes subsecciones y simplemente explicar los motores usados y el material de los eslabones porque ya no hay tiempo.
+
+En esta sección se describen los componentes principales del robot: los motores utilizados para el movimiento de los eslabones y las características físicas de los mismos.
+
 \subsubsection{Motores} \label{subsubsec:motores}
-Explicarán cuál es el motor que usaron, harán referencia a la hoja de datos, así como las transmisiones (por ejemplo, las de las pinzas) o reductores de velocidad a los que están acoplados. Deben de poner también información como: masa, fuerza o torque máximo, razón de reducción (por ejemplo, 10/1) y la velocidad máxima.
+
+Se emplearon motores servo de la serie SureServo2, modelo \textbf{SV2M-220B}, de la marca AutomationDirect. Estos motores son del tipo brushless de media inercia y están diseñados para aplicaciones de control de movimiento de alta precisión. Sus principales características son:
+
+\begin{itemize}
+	\item \textbf{Potencia:} 2 kW
+	\item \textbf{Velocidad nominal:} 2000 rpm
+	\item \textbf{Velocidad máxima:} 3000 rpm
+	\item \textbf{Torque nominal:} 84.5 lb-in (aproximadamente 9.55 Nm)
+	\item \textbf{Voltaje de entrada:} Trifásico (3-phase)
+	\item \textbf{Resolución del encoder:} 24 bits (16,777,216 pulsos por revolución)
+	\item \textbf{Freno integrado:} Sí
+	\item \textbf{Clasificación IP:} IP65
+\end{itemize}
+
+Los motores están acoplados a cajas reductoras planetarias para incrementar el torque disponible y reducir la velocidad angular, mejorando así la precisión de posicionamiento del robot. Se emplearon dos tipos de reductores:
+
+\begin{itemize}
+	\item \textbf{PGD110-05A6}: Reductor planetario con relación de reducción \textbf{5:1}, de salida tipo cubo (hub).
+	\item \textbf{PGA120-10A6}: Reductor planetario con relación de reducción \textbf{10:1}, de salida eje sólido recto (inline shaft output).
+\end{itemize}
+
+Para mecanismos secundarios, como pinzas o elementos auxiliares, se utilizaron motores con reductor integrado:
+
+\begin{itemize}
+	\item \textbf{Motor DC Weonefit 220RPM}: Motor con caja reductora, útil para tareas donde se requiere baja velocidad y par constante.
+	\item \textbf{Motor NEMA23 con reductor planetario 47:1}: Adecuado para movimientos lentos y precisos en articulaciones que no requieren alta potencia.
+\end{itemize}
+
 \subsubsection{Eslabones} \label{subsubsec:eslabones}
-Pondrán la masa, inercia, longitud y material de cada eslabón.
+
+Los eslabones del robot fueron diseñados para proporcionar la rigidez estructural necesaria con un peso moderado, utilizando principalmente acero estructural y perfiles de aluminio. Las dimensiones y masas aproximadas de cada eslabón son:
+
+\begin{itemize}
+	\item \textbf{Eslabón 1:} Masa de 17.68 kg, longitud de 0.28 m.
+	\item \textbf{Eslabón 2:} Masa de 15.5 kg, longitud de 0.30 m.
+	\item \textbf{Eslabón 3:} Masa de 6.5 kg, longitud de 0.25 m.
+	\item \textbf{Eslabón 4:} Masa de 6.5 kg, longitud de 0.35 m.
+\end{itemize}
+
+Cada eslabón fue modelado considerando tanto su masa como su inercia, con el objetivo de optimizar el rendimiento dinámico del sistema, asegurando estabilidad y precisión durante las trayectorias planificadas.
