@@ -1,45 +1,26 @@
-\subsection{Partes} \label{subsec:partes}
-
-En esta sección se describen los componentes principales del robot: los motores utilizados para el movimiento de los eslabones y las características físicas de los mismos.
-
 \subsubsection{Motores} \label{subsubsec:motores}
 
-Se emplearon motores servo de la serie SureServo2, modelo \textbf{SV2M-220B}, de la marca AutomationDirect. Estos motores son del tipo brushless de media inercia y están diseñados para aplicaciones de control de movimiento de alta precisión. Sus principales características son:
+El sistema de accionamiento del robot incorpora distintos tipos de motores, seleccionados estratégicamente según los requerimientos específicos de torque, precisión y control de cada componente:
 
 \begin{itemize}
-	\item \textbf{Potencia:} 2 kW
-	\item \textbf{Velocidad nominal:} 2000 rpm
-	\item \textbf{Velocidad máxima:} 3000 rpm
-	\item \textbf{Torque nominal:} 84.5 lb-in (aproximadamente 9.55 Nm)
-	\item \textbf{Voltaje de entrada:} Trifásico (3-phase)
-	\item \textbf{Resolución del encoder:} 24 bits (16,777,216 pulsos por revolución)
-	\item \textbf{Freno integrado:} Sí
-	\item \textbf{Clasificación IP:} IP65
+	\item \textbf{Motores servo SureServo2 (modelo SV2M-220B):} Se utilizaron dos motores \textit{brushless} de corriente alterna, cada uno con una potencia nominal de 2 kW y un par de sujeción de 84.5 lb-in. Están equipados con encoders de alta resolución de 24 bits (16,777,216 pulsos por revolución) y freno integrado. Estos motores operan con entrada trifásica y ofrecen velocidades de hasta 3000 rpm, siendo ideales para tareas que requieren alta precisión y control dinámico. Fueron acoplados a cajas reductoras de precisión para optimizar su desempeño mecánico.
+	
+	\item \textbf{Motor de corriente continua Weonefit (DC 24 V, 45 W):} Este motor de engranajes proporciona una salida de 220 rpm con un par nominal de 30 Nm, siendo adecuado para aplicaciones de bajo consumo energético que requieren buen torque a velocidades moderadas. Su construcción en materiales metálicos y plásticos lo hace robusto para tareas de baja complejidad mecánica.
+	
+	\item \textbf{Motor paso a paso STEPPERONLINE con caja reductora planetaria 47:1:} Este conjunto incorpora un motor NEMA 23 bipolar con un torque de sujeción de hasta 40 Nm y una corriente nominal de 2.8 A por fase. Gracias a la caja planetaria, se obtiene una alta relación de reducción, lo que permite movimientos controlados, precisos y con alto torque, útiles para tareas que no demandan retroalimentación continua.
 \end{itemize}
 
-Los motores están acoplados a cajas reductoras planetarias para incrementar el torque disponible y reducir la velocidad angular, mejorando así la precisión de posicionamiento del robot. Se emplearon dos tipos de reductores:
-
-\begin{itemize}
-	\item \textbf{PGD110-05A6}: Reductor planetario con relación de reducción \textbf{5:1}, de salida tipo cubo (hub).
-	\item \textbf{PGA120-10A6}: Reductor planetario con relación de reducción \textbf{10:1}, de salida eje sólido recto (inline shaft output).
-\end{itemize}
-
-Para mecanismos secundarios, como pinzas o elementos auxiliares, se utilizaron motores con reductor integrado:
-
-\begin{itemize}
-	\item \textbf{Motor DC Weonefit 220RPM}: Motor con caja reductora, útil para tareas donde se requiere baja velocidad y par constante.
-	\item \textbf{Motor NEMA23 con reductor planetario 47:1}: Adecuado para movimientos lentos y precisos en articulaciones que no requieren alta potencia.
-\end{itemize}
 
 \subsubsection{Eslabones} \label{subsubsec:eslabones}
 
-Los eslabones del robot fueron diseñados para proporcionar la rigidez estructural necesaria con un peso moderado, utilizando principalmente acero estructural y perfiles de aluminio. Las dimensiones y masas aproximadas de cada eslabón son:
+La estructura mecánica del robot está compuesta por eslabones metálicos que forman los brazos y segmentos articulados. Cada eslabón fue diseñado considerando tanto la distribución de masas como la longitud efectiva de trabajo, asegurando estabilidad dinámica y resistencia estructural. A continuación se describen sus características principales:
 
 \begin{itemize}
+
 	\item \textbf{Eslabón 1:} Masa de 17.68 kg, longitud de 0.28 m.
 	\item \textbf{Eslabón 2:} Masa de 15.5 kg, longitud de 0.30 m.
 	\item \textbf{Eslabón 3:} Masa de 6.5 kg, longitud de 0.25 m.
 	\item \textbf{Eslabón 4:} Masa de 6.5 kg, longitud de 0.35 m.
 \end{itemize}
 
-Cada eslabón fue modelado considerando tanto su masa como su inercia, con el objetivo de optimizar el rendimiento dinámico del sistema, asegurando estabilidad y precisión durante las trayectorias planificadas.
+Estas dimensiones fueron seleccionadas considerando el equilibrio entre la carga que deben soportar, la eficiencia en la transmisión del movimiento y la minimización del momento de inercia en cada articulación. Además, su disposición permite al robot alcanzar posiciones complejas y ejecutar trayectorias con precisión y estabilidad.
