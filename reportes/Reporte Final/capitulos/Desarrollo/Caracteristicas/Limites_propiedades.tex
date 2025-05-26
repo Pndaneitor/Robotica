@@ -1,3 +1,12 @@
 \subsection{Límites y propiedades dinámicas de las articulaciones} \label{subsec:limites_propiedades}
 
-Básicamente, explicarán lo que aparece en la \autoref{tab:parametros_robot}: Parámetros de Denavit Hartenberg y límites del robot, específicamente lo que aparece después de \code{tipo}. Como no completamos la tarea de dinámica,. pueden comentar esta subsección del documento principal.
+Dentro de la tabla  se definen los parámetros de límite los cuales restringen el movimiento de cada articulación. Estos límites fueron puestos por nosotros estimando el rango de libertad que tendrá cada eslabón y no por el motor. Esto con el fin de evitar colisiones entre los elementos del robot. \\[5pt] 
+El ángulo mínimo y máximo se representan como “Min” y “Max” y hacen referencia a los límites físicos de movimiento angular que puede alcanzar la articulación. Por ejemplo tenemos un límite de -180 esto nos indica que puede girar completamente de izquierda a derecha.\\[5pt]
+
+Velocidad angular máxima \\[5pt]
+Dentro de la tabla definida como $\dot{q}_{\text{max}}$ se indica la máxima velocidad a la que puede moverse la articulación la cual es expresada en grados sobre segundo. 
+
+Aceleración angular máxima \\[5pt]
+Dentro de la tabla definida como $\ddot{q}_{\text{max}}$ se indica la máxima aceleración que puede alcanzar la articulación durante su movimiento. 
+\\[5pt]
+Estos parámetros son sumamente importantes ya que nos guían al momento de planificar trayectorias realistas y seguras con el fin de prevenir daños y colisiones en nuestro robot. 
