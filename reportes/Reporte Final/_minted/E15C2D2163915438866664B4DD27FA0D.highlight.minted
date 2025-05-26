@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{k}{function}\PYG{+w}{ }\PYG{n+nf}{[q\PYGZus{}sol, p\PYGZus{}sol] = cinematica\PYGZus{}inv}\PYG{p}{(}r, p\PYGZus{}des, tol, max\PYGZus{}iter, alpha, numMuestras\PYG{p}{)}
-\end{MintedVerbatim}

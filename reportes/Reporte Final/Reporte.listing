@@ -1,5 +1,8 @@
 	g = crear_grafica_robot();
 	for k = 1:length(t_animacion)
-	robot = actualizar_robot(robot, q_anim(:,k));
+	for i = 1:robot.NGDL
+	q_anim(i) = ppval(cell2mat(pp(i)), t_animacion(k));
+	end
+	robot = actualizar_robot_completo(robot, q_anim);
 	g = dibujar_robot(g, robot);
 	end

@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{x}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{n}{p\PYGZus{}robot}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{x}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{]}\PYG{p}{;}
+\PYG{n}{phi}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{theta}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n+nb}{psi}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{n}{ori\PYGZus{}robot}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n+nb}{deg2rad}\PYG{p}{(}\PYG{p}{[}\PYG{n}{phi}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{theta}\PYG{p}{;}\PYG{+w}{ }\PYG{n+nb}{psi}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{R\PYGZus{}inicial}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{euler2rotMat}\PYG{p}{(}\PYG{n}{ori\PYGZus{}robot}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}XYZ\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{A0}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{p}{[}\PYG{n}{R\PYGZus{}inicial}\PYG{+w}{ }\PYG{n}{p\PYGZus{}robot}\PYG{p}{;}\PYG{+w}{ }\PYG{n+nb}{zeros}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{;}
+\end{MintedVerbatim}

@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{p}{[}\PYG{n}{posicion}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vel\PYGZus{}linear}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{acel\PYGZus{}linear}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{orientacion}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{...}
+\PYG{n}{vel\PYGZus{}angular}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{acel\PYGZus{}angular}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{cinematica\PYGZus{}dir}\PYG{p}{(}\PYG{n}{robot}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dq}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ddq}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}XYZ\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

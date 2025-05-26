@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{posicion}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}\PYG{+w}{   }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{robot}\PYG{p}{.}\PYG{n}{T}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{k}{end}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{R}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{p}{:}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}\PYG{+w}{        }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{robot}\PYG{p}{.}\PYG{n}{T}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{k}{end}\PYG{p}{)}\PYG{p}{;}
+\PYG{n}{orientacion}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}\PYG{p}{=}\PYG{+w}{ }\PYG{n}{rotMat2euler}\PYG{p}{(}\PYG{n}{R}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{p}{:}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{secuencia}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

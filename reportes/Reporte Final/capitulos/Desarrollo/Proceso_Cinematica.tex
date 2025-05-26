@@ -1,19 +1,5 @@
 \section{Proceso de Cinemática} \label{sec:proceso_cinematica}
 
-Aquí explicarán su código. Si quieren mostrar una parte, pueden hacerlo de la siguiente forma
-
-% Si no quieres ponerle título al código, puedes dejarlo en blanco.
-\begin{matlabcode}{matlab}
-	function [q_sol, p_sol] = cinematica_inv(r, p_des, tol, max_iter, alpha, numMuestras)
-\end{matlabcode}
-
-Pero solo háganlo en partes muy específicas (las que van a explicar en ese momento). No copien todo el código ya que eso está en GitHub.
-
-Si les sale el error \texttt{latexminted no se reconoce como un comando interno o externo, programa o archivo por lotes ejecutable}, deben tener instalado python y usar el siguiente comando.
-\begin{terminal}{bash: Instalar minted en python con pip}
-	pip install latexminted==0.5.1
-\end{terminal}
-
 \subsection{Cinemática Directa}
 
 La cinemática directa permite determinar la posición y orientación del efector final del robot a partir de los valores articulares. A continuación, se explican las secciones más relevantes del código empleado.
@@ -79,8 +65,154 @@ Se generó una animación para validar visualmente el movimiento del robot. Esta
 Las gráficas de resultados correspondientes a posición, orientación, velocidad y aceleración se presentan en la sección de \autoref{chap:resultados}.
 
 \subsection{Cinemática Diferencial}
-Explicar las partes importantes del código de la cinemática diferencial.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+
+La cinemática diferencial permite calcular la velocidad y aceleración del efector final a partir de las velocidades y aceleraciones articulares, usando el Jacobiano del robot. A continuación, se presenta la implementación en MATLAB dividida en pasos relevantes.
+
+\subsubsection*{Actualización de la configuración del robot}
+
+Para cada instante de tiempo, se actualizó el modelo del robot con los valores articulares correspondientes.
+
+\begin{matlabcode}{matlab}
+	for k = 1:length(t)
+	robot = actualizar_robot(robot, q(:,k));
+\end{matlabcode}
+
+\subsubsection*{Extracción de posición y orientación}
+
+Se extrajo la posición y la matriz de rotación del efector final, y luego se convirtieron en ángulos de Euler para analizar la orientación.
+
+\begin{matlabcode}{matlab}
+	posicion(:,k)   = robot.T(1:3,4,end);
+	R(:,:,k)        = robot.T(1:3,1:3,end);
+	orientacion(:,k)= rotMat2euler(R(:,:,k), secuencia);
+\end{matlabcode}
+
+\subsubsection*{Cálculo del Jacobiano geométrico}
+
+Se obtuvo el Jacobiano geométrico, que relaciona las velocidades articulares con las velocidades del efector final.
+
+\begin{matlabcode}{matlab}
+	[Jv(:,:,k), Jw(:,:,k)] = jac_geometrico(robot);
+\end{matlabcode}
+
+\subsubsection*{Cálculo de velocidades del efector final}
+
+A partir del Jacobiano y de las velocidades articulares se obtuvieron la velocidad lineal y angular del efector final.
+
+\begin{matlabcode}{matlab}
+	vel_linear(:,k)  = Jv(:,:,k) * dq(:,k);
+	vel_angular(:,k) = Jw(:,:,k) * dq(:,k);
+\end{matlabcode}
+
+\subsubsection*{Derivada del Jacobiano (diferencias finitas)}
+
+Para calcular las aceleraciones se necesitó la derivada del Jacobiano, la cual se obtuvo mediante diferencias finitas.
+
+\begin{matlabcode}{matlab}
+	if k > 1
+	dJv(:,:,k) = (Jv(:,:,k) - Jv(:,:,k-1)) / dt;
+	dJw(:,:,k) = (Jw(:,:,k) - Jw(:,:,k-1)) / dt;
+	end
+\end{matlabcode}
+
+\subsubsection*{Cálculo de aceleraciones del efector final}
+
+Finalmente, se calcularon las aceleraciones lineales y angulares del efector usando la fórmula completa de la cinemática diferencial:
+
+\[
+\dot{x} = J(q)\,\dot{q}, \quad \ddot{x} = J(q)\,\ddot{q} + \dot{J}(q)\,\dot{q}
+\]
+
+\begin{matlabcode}{matlab}
+	acel_linear(:,k)  = Jv(:,:,k) * ddq(:,k) + dJv(:,:,k) * dq(:,k);
+	acel_angular(:,k) = Jw(:,:,k) * ddq(:,k) + dJw(:,:,k) * dq(:,k);
+	end
+\end{matlabcode}
+
+\subsubsection*{Resultados}
+
+Los datos obtenidos fueron utilizados para generar gráficas de velocidad y aceleración tanto lineal como angular, así como para validar el comportamiento dinámico del efector final durante la trayectoria.
+
+
+
 \subsection{Cinemática Inversa}
-Explicar las partes importantes del código de la cinemática inversa.
-Para ver los resultados, ir al \autoref{chap:resultados}: Resultados, o determinada figura.
+
+La cinemática inversa permite encontrar los valores articulares que lleva al efector final a una posición deseada en el espacio. A continuación, se describen las secciones más relevantes del código empleado.
+
+\subsubsection*{Definición de la posición y orientación inicial}
+
+Se definieron los valores iniciales de posición y orientación del efector final, así como la matriz de transformación homogénea inicial.
+
+\begin{matlabcode}{matlab}
+	x = 0; y = 0; z = 0;
+	p_robot = [x; y; z];
+	phi = 0; theta = 0; psi = 0;
+	ori_robot = deg2rad([phi; theta; psi]);
+	R_inicial = euler2rotMat(ori_robot, "XYZ");
+	A0 = [R_inicial p_robot; zeros(1,3) 1];
+\end{matlabcode}
+
+\subsubsection*{Creación del modelo del robot}
+
+Se leyó la tabla DH desde un archivo y se construyó el modelo del robot.
+
+\begin{matlabcode}{matlab}
+	dh = readtable('datos\tabla_DH\robotnuestro.csv');
+	robot = crear_robot(dh, A0);
+\end{matlabcode}
+
+
+\subsubsection*{Resolución de la cinemática inversa}
+
+Se empleó un método iterativo basado en descenso del gradiente para minimizar el error entre la posición deseada y la alcanzada. En caso de quedar atrapado en un mínimo local, se evaluaron múltiples candidatos articulares.
+
+\begin{matlabcode}{matlab}
+	tol = 1e-6;
+	max_iter = 100;
+	alpha = 1.0;
+	numSamples = 9;
+	
+	for i = 1:n
+	[q_sol(:,i), p_sol(:,i)] = cinematica_inv(robot, pos_puntos(:,i), ...
+	tol, max_iter, alpha, numSamples);
+	end
+\end{matlabcode}
+
+\subsubsection*{Generación de trayectoria articular continua}
+
+Se interpolaron las posiciones articulares resultantes de la cinemática inversa para obtener perfiles suaves de velocidad y aceleración mediante trayectorias trapezoidales.
+
+\begin{matlabcode}{matlab}
+	delta_q = abs(q_sol(:,2) - q_sol(:,1));
+	t_final = max(2 * delta_q ./ robot.dqMax);
+	numSamples = 201;
+	
+	[q, dq, ddq, t, pp] = trapveltraj(q_sol, numSamples, ...
+	'Acceleration', robot.ddqMax, ...
+	'EndTime', 5);
+\end{matlabcode}
+
+\subsubsection*{Validación mediante cinemática directa}
+
+Se aplicó cinemática directa a las trayectorias articulares interpoladas para verificar que la posición alcanzada correspondiera con la deseada.
+
+\begin{matlabcode}{matlab}
+	[posicion, vel_linear, acel_linear, orientacion, ...
+	vel_angular, acel_angular] = cinematica_dir(robot, q, dq, ddq, t, "XYZ");
+\end{matlabcode}
+
+\subsubsection*{Animación}
+
+Se generó una animación del robot en movimiento usando la configuración articular evaluada en cada instante de tiempo.
+
+\begin{matlabcode}{matlab}
+	g = crear_grafica_robot();
+	for k = 1:length(t_animacion)
+	for i = 1:robot.NGDL
+	q_anim(i) = ppval(cell2mat(pp(i)), t_animacion(k));
+	end
+	robot = actualizar_robot_completo(robot, q_anim);
+	g = dibujar_robot(g, robot);
+	end
+\end{matlabcode}
+

@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{n}{tol}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mf}{1e\PYGZhy{}6}\PYG{p}{;}
+\PYG{n}{max\PYGZus{}iter}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{100}\PYG{p}{;}
+\PYG{n+nb}{alpha}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mf}{1.0}\PYG{p}{;}
+\PYG{n}{numSamples}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{p}{;}
+
+\PYG{k}{for}\PYG{+w}{ }\PYG{n+nb}{i}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n}{n}
+\PYG{p}{[}\PYG{n}{q\PYGZus{}sol}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{n+nb}{i}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p\PYGZus{}sol}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{n+nb}{i}\PYG{p}{)}\PYG{p}{]}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{cinematica\PYGZus{}inv}\PYG{p}{(}\PYG{n}{robot}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pos\PYGZus{}puntos}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{n+nb}{i}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{...}
+\PYG{n}{tol}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{max\PYGZus{}iter}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{alpha}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{numSamples}\PYG{p}{)}\PYG{p}{;}
+\PYG{k}{end}
+\end{MintedVerbatim}

@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{for}\PYG{+w}{ }\PYG{n}{k}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n+nb}{length}\PYG{p}{(}\PYG{n}{t}\PYG{p}{)}
+\PYG{n}{robot}\PYG{+w}{ }\PYG{p}{=}\PYG{+w}{ }\PYG{n}{actualizar\PYGZus{}robot}\PYG{p}{(}\PYG{n}{robot}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{(}\PYG{p}{:}\PYG{p}{,}\PYG{n}{k}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}
