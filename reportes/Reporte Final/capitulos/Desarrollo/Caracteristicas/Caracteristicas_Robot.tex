@@ -2,17 +2,17 @@
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 		\hline
-		Articulación & $\theta$ & $d$ & $a$ & $\alpha$ & Tipo & Min & Max & $\dot{q}_{\text{max}}$ & $\ddot{q}_{\text{max}}$ \\
+		N & $\theta$ (rad) & $d$ & $a$ & $\alpha$ (rad) & Tipo & Min (rad) & Max (rad) & $\dot{q}_{\text{max}}$ (rad/s) & $\ddot{q}_{\text{max}}$ (rad/s$^2$) \\
 		\hline
-		1 & 0     & 52   & 0    & -90   & r & -180 & 180 & 180 & 360 \\
-		2 & -90  & 0    & 50   & 0     & r & -90  & 75  & 180 & 360 \\
-		3 & 0     & 0    & 14.5 & -90   & r & -90  & 60  & 180 & 360 \\
-		4 & 0     & 47.5 & 0    & 0     & r & -180 & 180 & 180 & 360 \\
+		1 & 0.00  & 52   & 0    & -1.57 & r & -3.14 & 3.14 & 3.14 & 6.28 \\
+		2 & -1.57 & 0    & 50   & 0.00  & r & -1.57 & 1.31 & 3.14 & 6.28 \\
+		3 & 0.00  & 0    & 14.5 & -1.57 & r & -1.57 & 1.05 & 3.14 & 6.28 \\
+		4 & 0.00  & 47.5 & 0    & 0.00  & r & -3.14 & 3.14 & 3.14 & 6.28 \\
 		\hline
 	\end{tabular}
-	\caption{Parámetros DH y límites articulares del robot por articulación}
+	\caption{Parámetros DH y límites articulares del robot por articulación (valores en radianes)}
 	\label{tab:parametros_dh_articulaciones}
 \end{table}
 
@@ -21,14 +21,14 @@
 \textbf{Donde:}
 \begin{description}
 	\item[N] Número de la articulación.
-	\item[\(\theta\)] Ángulo articular en grados.
-	\item[\(d\)] Desplazamiento articular (unidades de longitud).
-	\item[\(a\)] Longitud del eslabón (unidades de longitud).
-	\item[\(\alpha\)] Ángulo de torsión DH en grados.
+	\item[\(\theta\)] Ángulo articular en radianes.
+	\item[\(d\)] Desplazamiento articular (cm).
+	\item[\(a\)] Longitud del eslabón (cm).
+	\item[\(\alpha\)] Ángulo de torsión DH en radianes.
 	\item[tipo] ‘r’ para articulación rotacional, ‘p’ para prismática.
-	\item[\(q_{\min}\), \(q_{\max}\)] Límites de posición en grados.
-	\item[\(\dot q_{\max}\)] Límite de velocidad en grados/s.
-	\item[\(\ddot q_{\max}\)] Límite de aceleración en grados/s².
+	\item[\(q_{\min}\), \(q_{\max}\)] Límites de posición en radianes.
+	\item[\(\dot q_{\max}\)] Límite de velocidad en radianes/s.
+	\item[\(\ddot q_{\max}\)] Límite de aceleración en radianes/s².
 
 \end{description}
 
