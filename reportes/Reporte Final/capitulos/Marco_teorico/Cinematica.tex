@@ -12,3 +12,18 @@ Dichas transformaciones permiten obtener no solo la ubicación del efector final
 
 Un desarrollo detallado del análisis computacional aplicado a este modelo puede encontrarse en la \hyperref[sec:proceso_cinematica]{sección del proceso de Cinemática}.
 
+\subsection{Cinemática Diferencial}
+
+s
+Dentro de la robótica la cinemática diferencial se enfoca en el estudio de cómo cambian las velocidades del robot conforme se van moviendo sus articulaciones. Se relacionan las velocidades articulares con las velocidades lineales y angulares del efector final. Nos permite calcular cómo se mueve y controlar la velocidad del efector final. 
+El Jacobiano es una matriz la cual relaciona directamente estas dos velocidades. Está traduce velocidades del espacio articular al espacio cartesiano. El Jacobiano de un robot con n articulaciones tiene las siguientes características:
+  \\
+-6 filas \\
+-n número de columnas.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/jacobiano}
+	\caption{Matriz de Jacobiano}
+	\label{fig:jacobiano}
+\end{figure}
